@@ -23,6 +23,8 @@ void Acelerometro() {
   //Calculo de angulos Y, X
   Acc[1] = atan(-1 * (AcX / A_R) / sqrt(pow((AcY / A_R), 2) + pow((AcZ / A_R), 2))) * RAD_TO_DEG;
   Acc[0] = atan((AcY / A_R) / sqrt(pow((AcX / A_R), 2) + pow((AcZ / A_R), 2))) * RAD_TO_DEG;
+  Acc[0] = map(Acc[0], -90, 90, 0, 180);
+  Acc[1] = map(Acc[1], -90, 90, 0, 180);
 
   //Leer los valores del Giroscopio
   Wire.beginTransmission(MPU);
