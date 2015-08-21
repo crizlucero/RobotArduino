@@ -40,6 +40,6 @@ void Acelerometro() {
   Serial.print("Angle X: "); Serial.println(Angle[0]);
   Serial.print("Angle Y: "); Serial.println(Angle[1]);
 
-  delay(10);
+  delay(1000);
 
 }
