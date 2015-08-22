@@ -18,13 +18,20 @@ void goBack(){
   digitalWrite(pinMotorRa, LOW);
 }
 
-void turnLeft(){
+void Stop(){
+  digitalWrite(pinMotorLb, LOW);
+  digitalWrite(pinMotorLa, LOW);
+  digitalWrite(pinMotorRb, LOW);
+  digitalWrite(pinMotorRa, LOW);
+}
+
+void turnRight(){
   digitalWrite(pinMotorLa, HIGH);
   digitalWrite(pinMotorLb, LOW);
   digitalWrite(pinMotorRa, LOW);
   digitalWrite(pinMotorRb, HIGH);
 }
-void turnRight(){
+void turnLeft(){
   digitalWrite(pinMotorLa, LOW);
   digitalWrite(pinMotorLb, HIGH);
   digitalWrite(pinMotorRa, HIGH);
