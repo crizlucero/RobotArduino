@@ -9,6 +9,7 @@ void goForward(){
   digitalWrite(pinMotorLb, LOW);
   digitalWrite(pinMotorRa, HIGH);
   digitalWrite(pinMotorRb, LOW);
+  delay(1000);
 }
 
 void goBack(){
@@ -16,6 +17,7 @@ void goBack(){
   digitalWrite(pinMotorLa, LOW);
   digitalWrite(pinMotorRb, HIGH);
   digitalWrite(pinMotorRa, LOW);
+  delay(1000);
 }
 
 void Stop(){
@@ -23,6 +25,7 @@ void Stop(){
   digitalWrite(pinMotorLa, LOW);
   digitalWrite(pinMotorRb, LOW);
   digitalWrite(pinMotorRa, LOW);
+  delay(1000);
 }
 
 void turnRight(){
@@ -30,10 +33,12 @@ void turnRight(){
   digitalWrite(pinMotorLb, LOW);
   digitalWrite(pinMotorRa, LOW);
   digitalWrite(pinMotorRb, HIGH);
+  delay(1000);
 }
 void turnLeft(){
   digitalWrite(pinMotorLa, LOW);
   digitalWrite(pinMotorLb, HIGH);
   digitalWrite(pinMotorRa, HIGH);
   digitalWrite(pinMotorRb, LOW);
+  delay(1000);
 }

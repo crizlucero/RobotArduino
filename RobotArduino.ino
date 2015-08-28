@@ -1,14 +1,12 @@
 #include <VirtualWire.h>
 #include <Wire.h>
 
+//Sensor
+const byte sensorPin = 7;
+
 //#include "Acelerometro.h"
 #include "Motores.h"
 #include "RF.h"
-
-const byte ENVIO_PULSO = 11;
-const byte RECIBIR_PULSO = 12;
-//Sensor
-const byte sensorPin = 7;
 
 void setup() {
   Serial.begin(9600);
@@ -41,18 +39,6 @@ void loop() {
   //RFSender();
   RFReceiver();
   delay(4000);
-  /*delay(5000);
-  if (digitalRead(sensorPin) == 0) {
-    goForward();
-    delay(1000);
-  }
-  else{
-    goBack();
-    delay(1000);
-    turnLeft();
-    delay(1000);
-  }
-  Stop();*/
   //Acelerometro
   //Acelerometro();
 }
