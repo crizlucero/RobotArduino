@@ -1,39 +1,50 @@
+char ID = 'B';
+char GID = 'B';
+
+byte comando[VW_MAX_MESSAGE_LEN];
+byte comandoLenght = VW_MAX_MESSAGE_LEN;
+
 void RFSender() {
   char msg[7] = {
-    'h', 'e', 'l', 'l', 'o', ' ', '#'  };
+    'h', 'e', 'l', 'l', 'o', ' ', '#'    };
 
   //  msg[6] = count;
   //digitalWrite(led_pin, HIGH); // Flash a light to show transmitting
   vw_send((uint8_t *)msg, 7);
   vw_wait_tx(); // Wait until the whole message is gone
-  //digitalWrite(led_pin, LOW);
-  //count = count + 1;
 }
 
 
 void RFReceiver() {
-  uint8_t buf[VW_MAX_MESSAGE_LEN];
-  uint8_t buflen = VW_MAX_MESSAGE_LEN;
-  if(vw_wait_rx_max(5000)){
-    if (vw_get_message(buf, &buflen)) // Non-blocking
-    {
-      int i;
+    //enviarPregunta();
+    if(vw_wait_rx_max(2000)){
 
-      //digitalWrite(led_pin, HIGH); // Flash a light to show received good message
-      // Message with a good checksum received, print it.
-      Serial.print("Got: ");
 
-      for (i = 0; i < buflen; i++)
+      if (vw_get_message(comando, &comandoLenght))
       {
-        Serial.print(buf[i], HEX);
-        Serial.print(' ');
+        Serial.println("Se recibio un mensaje");
+        char tipoMensaje = (char)comando[0];
+        Serial.println(tipoMensaje);
+        if(tipoMensaje == 'U'){
+          if(comando[2] == ID){
+            Serial.println("Instruccion para mi");
+//            avanzar = true;
+          }
+        }
+        if(tipoMensaje == 'B'){
+          Serial.println("Instruccion para todos");
+  //        avanzar = true;
+        }
       }
-      Serial.println();
-      // digitalWrite(led_pin, LOW);
+      else{
+        Serial.println("Mensaje dañado");
+      }
+
     }
-  }
-  else{
-    Serial.println("Valio");
-  }
+    else{
+      Serial.println("Expiro el tiempo de espera, hay que reintentar");
+    }
+
 }
+
 
