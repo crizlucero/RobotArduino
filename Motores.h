@@ -25,7 +25,7 @@ void Stop(){
   digitalWrite(pinMotorLa, LOW);
   digitalWrite(pinMotorRb, LOW);
   digitalWrite(pinMotorRa, LOW);
-  delay(1000);
+  delay(1500);
 }
 
 void turnRight(){
